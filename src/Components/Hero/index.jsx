@@ -1,5 +1,12 @@
-import { useEffect, useState } from "react";
-import businessImg from "/assets/images/L1_buy_and_sell.7ef82b59.jpg";
+import { useState } from "react";
+import businessImg from "/assets/images/buy.jpg";
+import carImg from "/assets/images/car.jpg";
+import communityImg from "/assets/images/community.jpg";
+import petImg from "/assets/images/pets.jpg";
+import jobImg from "/assets/images/jobs.jpg";
+import realEstateImg from "/assets/images/real-estate.jpg";
+import servicesImg from "/assets/images/services.jpg";
+import vacationImg from "/assets/images/vacation.jpg";
 import { IoChevronForward } from "react-icons/io5";
 
 const sell = [
@@ -651,6 +658,10 @@ const Hero = () => {
   const [showCommunity, setShowCommunity] = useState(false);
   const [showVacation, setShowVacation] = useState(false);
 
+  //   parentTitle
+  const [parentTitle, setParentTitle] = useState(null);
+  const [image, setImage] = useState(null);
+
   //     To show children
   const [selectedItemChildren, setSelectedItemChildren] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -691,11 +702,10 @@ const Hero = () => {
               setShowVacation(false);
 
               setShowCars(false);
+
+              setParentTitle("Buy & Sell");
+              setImage(businessImg);
             }}
-            // onMouseLeave={() => {
-            //   setMenu(false);
-            //   setShowBusiness(false);
-            // }}
           >
             Buy & Sell
           </span>
@@ -712,6 +722,9 @@ const Hero = () => {
               setShowVacation(false);
 
               setShowCars(true);
+
+              setParentTitle("Cars & Vehicles");
+              setImage(carImg);
             }}
             // onMouseLeave={() => setMenu(false)}
           >
@@ -730,6 +743,9 @@ const Hero = () => {
               setShowVacation(false);
 
               setShowCars(false);
+
+              setParentTitle("Real Estate");
+              setImage(realEstateImg);
             }}
             // onMouseLeave={() => setMenu(false)}
           >
@@ -748,6 +764,9 @@ const Hero = () => {
               setShowVacation(false);
 
               setShowCars(false);
+
+              setParentTitle("Jobs");
+              setImage(jobImg);
             }}
             // onMouseLeave={() => setMenu(false)}
           >
@@ -766,6 +785,9 @@ const Hero = () => {
               setShowVacation(false);
 
               setShowCars(false);
+
+              setParentTitle("Services");
+              setImage(servicesImg);
             }}
             // onMouseLeave={() => setMenu(false)}
           >
@@ -784,6 +806,8 @@ const Hero = () => {
               setShowVacation(false);
 
               setShowCars(false);
+              setParentTitle("Pets");
+              setImage(petImg);
             }}
             // onMouseLeave={() => setMenu(false)}
           >
@@ -802,6 +826,8 @@ const Hero = () => {
               setShowVacation(false);
 
               setShowCars(false);
+              setParentTitle("Community");
+              setImage(communityImg);
             }}
             // onMouseLeave={() => setMenu(false)}
           >
@@ -820,6 +846,9 @@ const Hero = () => {
               setShowVacation(true);
 
               setShowCars(false);
+
+              setParentTitle("Vacation Rentals");
+              setImage(vacationImg);
             }}
             // onMouseLeave={() => setMenu(false)}
           >
@@ -852,7 +881,7 @@ const Hero = () => {
               href="#"
               className="underline hover:no-underline transition   font-semibold  text-[#155e9b] cursor-pointer "
             >
-              See all in Buy & Sell
+              See all in {parentTitle}
             </a>
           </span>
           {showBusiness &&
@@ -1011,7 +1040,9 @@ const Hero = () => {
         <div
           className="flex-1 menu-img"
           style={{
-            backgroundImage: `${`url(${businessImg})`} `,
+            backgroundImage: `  ${
+              selectedItemChildren?.length > 11 ? "" : `url(${image})`
+            } `,
           }}
         >
           {selectedItemChildren && (
