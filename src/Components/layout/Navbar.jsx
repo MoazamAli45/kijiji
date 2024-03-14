@@ -1,10 +1,14 @@
+import { useMenu } from "../../../hooks/useMenu";
+
 const Navbar = () => {
+  const { setMenu } = useMenu();
   return (
     <div
       className="py-[20px] bg-white"
       style={{
         boxShadow: "0 2px 5px rgba(0,0,0,.05)",
       }}
+      onMouseOver={() => setMenu(false)}
     >
       <div className="max-w-[1440px] px-8 mx-auto w-full hidden md:block">
         <div className="flex justify-between items-center flex-wrap">
@@ -88,7 +92,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-[1440px] px-4 mx-auto w-full block md:hidden px-[15px]">
+      <div className="max-w-[1440px] mx-auto w-full block md:hidden px-[15px]">
         <div className="flex justify-between items-center flex-wrap">
           <div className="logo">
             <img

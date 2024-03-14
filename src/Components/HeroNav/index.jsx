@@ -12,6 +12,7 @@ import {
   IoChevronForward,
   IoClose,
 } from "react-icons/io5";
+import { useMenu } from "../../../hooks/useMenu";
 
 const sell = [
   {
@@ -651,8 +652,8 @@ const vacation = [
   { title: "Other Countries" },
 ];
 
-const Hero = () => {
-  const [menu, setMenu] = useState(false);
+const HeroNav = () => {
+  const { menu, setMenu } = useMenu();
   const [showBusiness, setShowBusiness] = useState(false);
   const [showCars, setShowCars] = useState(false);
   const [showRealEstate, setShowRealEstate] = useState(false);
@@ -1523,4 +1524,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default HeroNav;

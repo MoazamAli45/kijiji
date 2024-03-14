@@ -1,8 +1,7 @@
 import "../layout/layout.css";
-import Header from "../layout/Header";
 import Navbar from "../layout/Navbar";
 import { Footer } from "../layout/Footer";
-import Hero from "../Hero";
+import HeroNav from "../HeroNav";
 
 export const Home = () => {
   return (
@@ -10,7 +9,7 @@ export const Home = () => {
       {/* <Header /> */}
       <Navbar />
       {/* <LocationSection /> */}
-      <Hero />
+      <HeroNav />
       <Footer />
     </>
   );
