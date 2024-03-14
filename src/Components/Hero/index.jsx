@@ -13,6 +13,9 @@ import image11 from "/assets/images/pic-11.webp";
 import image12 from "/assets/images/pic-12.webp";
 import image13 from "/assets/images/pic-13.webp";
 import image14 from "/assets/images/pic-14.webp";
+import image15 from "/assets/images/pic-15-a.webp";
+import image16 from "/assets/images/pic-16-a.webp";
+import image17 from "/assets/images/pic-17-a.webp";
 
 import Card from "../shared/Card";
 import { GoChevronRight } from "react-icons/go";
@@ -81,11 +84,26 @@ const realEstate = [
   },
 ];
 
+const central = [
+  {
+    title: "How to make & save money from home",
+    image: image15,
+  },
+  {
+    title: "How to find the perfect appartment for rent on ...",
+    image: image16,
+  },
+  {
+    title: "8 essential tools to have onn hand for jobs aroun...",
+    image: image17,
+  },
+];
+
 const Hero = () => {
   const { setMenu } = useMenu();
   return (
     <>
-      <div className="bg-[#373373]" onMouseOver={() => setMenu(false)}>
+      <div className="bg-primary" onMouseOver={() => setMenu(false)}>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 py-8 flex flex-col gap-y-4  sm:flex-row sm:items-center">
           <div className=" sm:flex-1">
             <h5 className="text-white font-semibold text-[22px] max-w-[60%] mx-auto  leading-[26px]">
@@ -105,7 +123,7 @@ const Hero = () => {
       {/*  Bottom Hero */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 py-8 grid gap-x-12 grid-cols-1 custom-lg:grid-cols-[4fr_1fr]">
         <div className="flex flex-col gap-2">
-          <div className="flex justify-between">
+          <div className="flex justify-between flex-col  gap-4  sm:flex-row">
             <h2 className="text-[20px] font-medium text-primary">
               Popular in Autos in Territories
             </h2>
@@ -117,14 +135,14 @@ const Hero = () => {
             </a>
           </div>
           {/*  Grid */}
-          <div className="grid grid-cols-4 gap-x-6 gap-y-4">
+          <div className="grid grid-cols-2 custom-md:grid-cols-4 gap-x-6 gap-y-4">
             {cars1.map((car, index) => (
               <Card key={index} car={car} />
             ))}
           </div>
           {/*  Buy and Sell Grid */}
           <div className="mt-4 flex flex-col gap-4">
-            <div className="flex justify-between">
+            <div className="flex justify-between flex-col sm:flex-row ">
               <h2 className="text-[20px] font-medium text-primary">
                 Popular in Buy and Sell in Territories
               </h2>
@@ -136,11 +154,74 @@ const Hero = () => {
               </a>
             </div>
             {/*  Grid */}
-            <div className="grid grid-cols-3 gap-x-6 gap-y-4">
+            <div className=" hidden  sm:grid sm:grid-cols-3 sm:gap-x-6 gap-y-4  overflow-x-auto ">
               {buy.map((car, index) => (
-                <Card key={index} car={car} />
+                <div
+                  className="rounded-sm snap-center relative group cursor-pointer   sm:w-full   sm:h-full"
+                  key={index}
+                >
+                  <img
+                    src={car.image}
+                    alt={car.title}
+                    className="  object-cover rounded-sm   sm:w-full   sm:h-full "
+                  />
+                  {car.title !== "" && (
+                    <p
+                      className="text-[14px] sm:text-[16px] p-[5px] rounded-[2px] w-[80%] max-w-max  mx-auto bg-primary/80 text-white font-semibold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                  group-hover:bg-white group-hover:text-primary transition-all
+                text-center
+                "
+                    >
+                      {car.title}
+                    </p>
+                  )}
+                </div>
               ))}
             </div>
+
+            <div className="block sm:hidden relative w-full overflow-hidden">
+              <div className="flex overflow-x-auto snap-x-mandatory">
+                {buy.map((car, index) => (
+                  <div
+                    className="rounded-sm snap-center relative group cursor-pointer   flex-none w-full "
+                    key={index}
+                  >
+                    <img
+                      src={car.image}
+                      alt={car.title}
+                      className="  object-cover rounded-sm   sm:w-full   sm:h-full "
+                    />
+                    {car.title !== "" && (
+                      <p
+                        className="text-[16px] sm:text-[16px] p-[5px] rounded-[2px] w-[80%] max-w-max  mx-auto bg-primary/80 text-white font-semibold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                  group-hover:bg-white group-hover:text-primary transition-all
+                text-center
+                "
+                      >
+                        {car.title}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          {/*  */}
+          <div className="mt-4 bg-primary flex flex-col items-center px-6 py-12 text-white rounded-[5px] gap-[10px]">
+            <h2 className="text-[22px] font-bold leading-[26px] text-center">
+              Kijiji&apos;s better when you&apos;re a member
+            </h2>
+            <p className="text-[16px] font-normal mb-[25px] text-center">
+              See more relevant listings, find what you&apos;re looking for
+              quicker, and more!
+            </p>
+            <button
+              className="text-[#155e9b] bg-white border-[1px] border-sold border-white underline hover:no-underline hover:bg-transparent transition-all
+            py-4 px-8 rounded-[5px]
+            "
+            >
+              Sign in
+            </button>
           </div>
           {/*  Real Estate */}
           <div className="mt-4 flex flex-col gap-4">
@@ -159,6 +240,39 @@ const Hero = () => {
             <div className="grid grid-cols-3 gap-x-6 gap-y-4">
               {realEstate.map((car, index) => (
                 <Card key={index} car={car} />
+              ))}
+            </div>
+          </div>
+          {/*  Kijie Central*/}
+          <div className="mt-4 flex flex-col gap-4">
+            <div className="flex justify-between">
+              <h2 className="text-[20px] font-medium text-primary">
+                Kijiji Central
+              </h2>
+            </div>
+            {/*  Grid */}
+            <div className="grid grid-cols-3 gap-x-6 gap-y-4">
+              {central.map((car, index) => (
+                <div
+                  className="rounded-sm relative group cursor-pointer "
+                  key={index}
+                >
+                  <img
+                    src={car.image}
+                    alt={car.title}
+                    className="w-full h-full object-cover rounded-sm"
+                  />
+                  <div className="bg-gradient absolute bottom-0 right-0 left-[9px] h-[36px] flex items-center  pb-6">
+                    <p className="text-white font-semibold text-[14px] px-2 pb-4 text-ellipsis ">
+                      {car.title}
+                    </p>
+                    <img
+                      src="/assets/images/central-svg.svg"
+                      alt="central"
+                      className="w-[30px] h-[30px]"
+                    />
+                  </div>
+                </div>
               ))}
             </div>
           </div>

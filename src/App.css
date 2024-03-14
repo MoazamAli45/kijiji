@@ -39,3 +39,8 @@ body {
 
   background-image: url("/assets/images/hero.webp");
 }
+
+.bg-gradient {
+  background: linear-gradient(180deg, transparent, #373373);
+  padding: 100px 20px 20px;
+}
