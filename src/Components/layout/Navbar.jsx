@@ -77,7 +77,7 @@ const Navbar = () => {
                   >
                     <img src="./assets/images/svgexport-6.svg" alt="" />
                     All categories
-                    {!isOpen ? <GoChevronUp /> : <GoChevronDown />}
+                    {isOpen ? <GoChevronUp /> : <GoChevronDown />}
                   </button>
 
                   <div
