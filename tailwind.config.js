@@ -10,6 +10,7 @@ export default {
         "custom-sm": "400px",
         "custom-lg": "1150px",
         "custom-md": "980px",
+        "custom-ml": "880px",
       },
     },
   },

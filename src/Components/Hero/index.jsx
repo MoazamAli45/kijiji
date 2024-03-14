@@ -17,6 +17,9 @@ import image15 from "/assets/images/pic-15-a.webp";
 import image16 from "/assets/images/pic-16-a.webp";
 import image17 from "/assets/images/pic-17-a.webp";
 
+import appStore from "/assets/images/appstore.png";
+import playStore from "/assets/images/googleplay.png";
+
 import Card from "../shared/Card";
 import { GoChevronRight } from "react-icons/go";
 
@@ -364,6 +367,38 @@ const Hero = () => {
               </a>
               <GoChevronRight className="text-[#155e9b] text-[16px]" />
             </span>
+          </div>
+        </div>
+      </div>
+      {/*  Above Footer */}
+      <div className="max-w-[1440px] px-4  sm:px-8   my-16">
+        <div className="bg-primary rounded-[5px] flex flex-col items-center pt-8  custom-md:flex-row   justify-evenly custom-ml:h-[230px] overflow-y-hidden  px-6 custom-ml:px-0">
+          <div className="flex flex-col gap-4 text-white justify-center">
+            <h2 className="text-[22px] font-semibold leading-[26px]">
+              Take Canada&apos;s #1 classified site with you{" "}
+            </h2>
+            <p className="font-normal">
+              Buy and sell new or used items wherever you go!
+            </p>
+            <div className="flex gap-4">
+              <img
+                src={appStore}
+                alt="appstore"
+                className="w-[100px] h-[40px] sm:w-[150px] sm:h-[50px] rounded-md border-[1px] border-solid border-white"
+              />
+              <img
+                src={playStore}
+                alt="playstore"
+                className="w-[100px] h-[40px] sm:w-[150px] sm:h-[50px] rounded-md border-[1px] border-solid border-white"
+              />
+            </div>
+          </div>
+          <div>
+            <img
+              src="/assets/images/pic-mobile.png"
+              alt="mobile-apps"
+              className="h-[150px] translate-y-[42px]  custom-ml:h-[270px] cutsom-ml:-translate-y-[42px]"
+            />
           </div>
         </div>
       </div>
