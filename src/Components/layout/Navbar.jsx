@@ -82,7 +82,7 @@ const Navbar = () => {
 
                   <div
                     className={`absolute top-full left-0 mt-1 bg-white shadow-md rounded-md w-full z-[999] ${
-                      isOpen ? "opacity-0" : "opacity-100"
+                      !isOpen ? "opacity-0" : "opacity-100"
                     } transition-opacity ease-linear duration-300`}
                   >
                     <ul className="flex flex-col gap-2">
