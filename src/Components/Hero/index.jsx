@@ -225,7 +225,7 @@ const Hero = () => {
           </div>
           {/*  Real Estate */}
           <div className="mt-4 flex flex-col gap-4">
-            <div className="flex justify-between">
+            <div className="flex flex-col sm:flex-row justify-between">
               <h2 className="text-[20px] font-medium text-primary">
                 Popular in Real Estate in Territories
               </h2>
@@ -237,10 +237,37 @@ const Hero = () => {
               </a>
             </div>
             {/*  Grid */}
-            <div className="grid grid-cols-3 gap-x-6 gap-y-4">
+            <div className="hidden sm:grid grid-cols-3 gap-x-6 gap-y-4">
               {realEstate.map((car, index) => (
                 <Card key={index} car={car} />
               ))}
+            </div>
+
+            <div className="block sm:hidden relative w-full overflow-hidden">
+              <div className="flex overflow-x-auto snap-x-mandatory">
+                {realEstate.map((car, index) => (
+                  <div
+                    className="rounded-sm snap-center relative group cursor-pointer   flex-none w-full "
+                    key={index}
+                  >
+                    <img
+                      src={car.image}
+                      alt={car.title}
+                      className="  object-cover rounded-sm   sm:w-full   sm:h-full "
+                    />
+                    {car.title !== "" && (
+                      <p
+                        className="text-[16px] sm:text-[16px] p-[5px] rounded-[2px] w-[80%] max-w-max  mx-auto bg-primary/80 text-white font-semibold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                  group-hover:bg-white group-hover:text-primary transition-all
+                text-center
+                "
+                      >
+                        {car.title}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           {/*  Kijie Central*/}
@@ -251,7 +278,7 @@ const Hero = () => {
               </h2>
             </div>
             {/*  Grid */}
-            <div className="grid grid-cols-3 gap-x-6 gap-y-4">
+            <div className="hidden sm:grid grid-cols-3 gap-x-6 gap-y-4">
               {central.map((car, index) => (
                 <div
                   className="rounded-sm relative group cursor-pointer "
@@ -263,17 +290,44 @@ const Hero = () => {
                     className="w-full h-full object-cover rounded-sm"
                   />
                   <div className="bg-gradient absolute bottom-0 right-0 left-[9px] h-[36px] flex items-center  pb-6">
-                    <p className="text-white font-semibold text-[14px] px-2 pb-4 text-ellipsis ">
+                    <p className="text-white font-semibold text-[14px] px-2 mb-4 text-ellipsis ">
                       {car.title}
                     </p>
                     <img
                       src="/assets/images/central-svg.svg"
                       alt="central"
-                      className="w-[30px] h-[30px]"
+                      className="w-[30px] h-[30px] mb-4"
                     />
                   </div>
                 </div>
               ))}
+            </div>
+
+            <div className="block sm:hidden relative w-full overflow-hidden">
+              <div className="flex overflow-x-auto snap-x-mandatory">
+                {central.map((car, index) => (
+                  <div
+                    className="rounded-sm snap-center relative group cursor-pointer   flex-none w-full "
+                    key={index}
+                  >
+                    <img
+                      src={car.image}
+                      alt={car.title}
+                      className="  object-cover rounded-sm   sm:w-full   sm:h-full "
+                    />
+                    <div className="bg-gradient absolute bottom-0 right-0 left-[9px] h-[36px] flex items-center  pb-6 justify-between">
+                      <p className="text-white font-semibold text-[14px] px-2 mb-4 text-ellipsis ">
+                        {car.title}
+                      </p>
+                      <img
+                        src="/assets/images/central-svg.svg"
+                        alt="central"
+                        className="w-[30px] h-[30px] mb-4"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
