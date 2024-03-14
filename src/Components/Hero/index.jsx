@@ -7,7 +7,11 @@ import jobImg from "/assets/images/jobs.jpg";
 import realEstateImg from "/assets/images/real-estate.jpg";
 import servicesImg from "/assets/images/services.jpg";
 import vacationImg from "/assets/images/vacation.jpg";
-import { IoChevronForward } from "react-icons/io5";
+import {
+  IoChevronBackOutline,
+  IoChevronForward,
+  IoClose,
+} from "react-icons/io5";
 
 const sell = [
   {
@@ -535,7 +539,7 @@ const community = [
   { title: "Other" },
 ];
 
-const vacaction = [
+const vacation = [
   {
     title: "Canada",
     children: [
@@ -666,10 +670,29 @@ const Hero = () => {
   const [selectedItemChildren, setSelectedItemChildren] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
 
+  //  Modal
+  const [isOpen, setIsOpen] = useState(false);
+  //  Mobile Content to show
+  const [showBusinessMobile, setShowBusinessMobile] = useState(false);
+  const [showCarsMobile, setShowCarsMobile] = useState(false);
+  const [showRealEstateMobile, setShowRealEstateMobile] = useState(false);
+  const [showJobsMobile, setShowJobsMobile] = useState(false);
+  const [showServicesMobile, setShowServicesMobile] = useState(false);
+  const [showPetsMobile, setShowPetsMobile] = useState(false);
+  const [showCommunityMobile, setShowCommunityMobile] = useState(false);
+  const [showVacationMobile, setShowVacationMobile] = useState(false);
+
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  };
+
   const handleItemHover = (children) => {
     setSelectedItemChildren(children);
   };
 
+  const handleItemClick = (children) => {
+    setSelectedItemChildren(children);
+  };
   const handleMenuClose = () => {
     setMenu(false);
     setShowBusiness(false);
@@ -682,454 +705,821 @@ const Hero = () => {
     setShowVacation(false);
   };
 
+  //  <-----handle Back to Modal   from children Categories -------->
+  const handleBackModal = () => {
+    if (parentTitle === "Buy & Sell") {
+      setShowBusinessMobile(true);
+      setSelectedItemChildren(null);
+    }
+    if (parentTitle === "Cars & Vehicles") {
+      setShowCarsMobile(true);
+      setSelectedItemChildren(null);
+    }
+    if (parentTitle === "Real Estate") {
+      setShowRealEstateMobile(true);
+      setSelectedItemChildren(null);
+    }
+    if (parentTitle === "Jobs") {
+      setShowJobsMobile(true);
+      setSelectedItemChildren(null);
+    }
+    if (parentTitle === "Services") {
+      setShowServicesMobile(true);
+      setSelectedItemChildren(null);
+    }
+    if (parentTitle === "Pets") {
+      setShowPetsMobile(true);
+      setSelectedItemChildren(null);
+    }
+    if (parentTitle === "Community") {
+      setShowCommunityMobile(true);
+      setSelectedItemChildren(null);
+    }
+    if (parentTitle === "Vacation Rentals") {
+      setShowVacationMobile(true);
+      setSelectedItemChildren(null);
+    }
+  };
+
   return (
-    <div
-      className="max-w-[1440px] px-8 py-4 relative"
-      onMouseEnter={() => handleMenuClose()}
-    >
-      <div className="flex justify-between">
-        <div className="flex gap-8">
-          <span
-            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
-            flex-col flex gap-1
-            "
-            onMouseOver={() => {
-              setMenu(true);
-              setShowBusiness(true);
-              setShowCommunity(false);
-              setShowServices(false);
-              setShowJobs(false);
-              setShowRealEstate(false);
-              setShowPets(false);
-              setShowVacation(false);
-
-              setShowCars(false);
-
-              setParentTitle("Buy & Sell");
-              setImage(businessImg);
-            }}
-          >
-            <img
-              src="/assets/images/buy-svg.svg"
-              alt="buy"
-              className="block lg:hidden  w-[24px] h-[24px] self-center"
-            />
-            <span> Buy & Sell </span>
-          </span>
-          <span
-            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
-            
-                flex-col flex gap-1
-            "
-            onMouseOver={() => {
-              setMenu(true);
-              setShowBusiness(false);
-              setShowCommunity(false);
-              setShowServices(false);
-              setShowJobs(false);
-              setShowRealEstate(false);
-              setShowPets(false);
-              setShowVacation(false);
-
-              setShowCars(true);
-
-              setParentTitle("Cars & Vehicles");
-              setImage(carImg);
-            }}
-            // onMouseLeave={() => setMenu(false)}
-          >
-            <img
-              src="/assets/images/car-svg.svg"
-              alt="buy"
-              className="block lg:hidden  w-[24px] h-[24px] self-center"
-            />
-            <span>Car & Vehicles </span>
-          </span>
-          <span
-            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
-                flex-col flex gap-1
-            "
-            onMouseOver={() => {
-              setMenu(true);
-              setShowBusiness(false);
-              setShowCommunity(false);
-              setShowServices(false);
-              setShowJobs(false);
-              setShowRealEstate(true);
-              setShowPets(false);
-              setShowVacation(false);
-
-              setShowCars(false);
-
-              setParentTitle("Real Estate");
-              setImage(realEstateImg);
-            }}
-            // onMouseLeave={() => setMenu(false)}
-          >
-            <img
-              src="/assets/images/real-estate-svg.svg"
-              alt="buy"
-              className="block lg:hidden  w-[24px] h-[24px] self-center"
-            />
-            <span>Real Estate</span>
-          </span>
-          <span
-            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
-                flex-col flex gap-1
-            "
-            onMouseOver={() => {
-              setMenu(true);
-              setShowBusiness(false);
-              setShowCommunity(false);
-              setShowServices(false);
-              setShowJobs(true);
-              setShowRealEstate(false);
-              setShowPets(false);
-              setShowVacation(false);
-
-              setShowCars(false);
-
-              setParentTitle("Jobs");
-              setImage(jobImg);
-            }}
-            // onMouseLeave={() => setMenu(false)}
-          >
-            <img
-              src="/assets/images/jobs-svg.svg"
-              alt="jobs"
-              className="block lg:hidden  w-[24px] h-[24px] self-center"
-            />
-            <span> Jobs</span>
-          </span>
-          <span
-            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
-                flex-col flex gap-1
-            "
-            onMouseOver={() => {
-              setMenu(true);
-              setShowBusiness(false);
-              setShowCommunity(false);
-              setShowServices(true);
-              setShowJobs(false);
-              setShowRealEstate(false);
-              setShowPets(false);
-              setShowVacation(false);
-
-              setShowCars(false);
-
-              setParentTitle("Services");
-              setImage(servicesImg);
-            }}
-            // onMouseLeave={() => setMenu(false)}
-          >
-            <img
-              src="/assets/images/services-svg.svg"
-              alt="buy"
-              className="block lg:hidden  w-[24px] h-[24px] self-center"
-            />
-            <span>Services</span>
-          </span>
-          <span
-            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
-                flex-col flex gap-1
-            "
-            onMouseOver={() => {
-              setMenu(true);
-              setShowBusiness(false);
-              setShowCommunity(false);
-              setShowServices(false);
-              setShowJobs(false);
-              setShowRealEstate(false);
-              setShowPets(true);
-              setShowVacation(false);
-
-              setShowCars(false);
-              setParentTitle("Pets");
-              setImage(petImg);
-            }}
-            // onMouseLeave={() => setMenu(false)}
-          >
-            <img
-              src="/assets/images/pets-svg.svg"
-              alt="pets"
-              className="block lg:hidden  w-[24px] h-[24px] self-center"
-            />
-            <span>Pets</span>
-          </span>
-          <span
-            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
-                flex-col flex gap-1"
-            onMouseOver={() => {
-              setMenu(true);
-              setShowBusiness(false);
-              setShowCommunity(true);
-              setShowServices(false);
-              setShowJobs(false);
-              setShowRealEstate(false);
-              setShowPets(false);
-              setShowVacation(false);
-
-              setShowCars(false);
-              setParentTitle("Community");
-              setImage(communityImg);
-            }}
-            // onMouseLeave={() => setMenu(false)}
-          >
-            <img
-              src="/assets/images/community-svg.svg"
-              alt="community"
-              className="block lg:hidden  w-[24px] h-[24px] self-center"
-            />
-            <span>Community</span>
-          </span>
-          <span
-            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
-                flex-col flex gap-1
-            "
-            onMouseOver={() => {
-              setMenu(true);
-              setShowBusiness(false);
-              setShowCommunity(false);
-              setShowServices(false);
-              setShowJobs(false);
-              setShowRealEstate(false);
-              setShowPets(false);
-              setShowVacation(true);
-
-              setShowCars(false);
-
-              setParentTitle("Vacation Rentals");
-              setImage(vacationImg);
-            }}
-            // onMouseLeave={() => setMenu(false)}
-          >
-            <img
-              src="/assets/images/vacation-svg.svg"
-              alt="buy"
-              className="block lg:hidden  w-[24px] h-[24px] self-center"
-            />
-            <span>Vacation Rentals</span>
-          </span>
-        </div>
-        {/*  right */}
-        <div className=" hidden lg:flex flex-col">
-          <span className="underline px-[8px] py-[4px] rounded-[4px] bg-[#F8AA17] font-bold text-primary text-[12px]">
-            Trending
-          </span>
-          <a href="#" className="underline text-primary text-[15px]">
-            ATVs
-          </a>
-        </div>
-      </div>
-      {/*  Menu */}
+    <>
       <div
-        className={`absolute    top-full right-5 w-[calc(100%-32px)] h-[400px] z-10 bg-white ${
-          menu ? "flex" : "hidden"
-        }
+        className="max-w-[1440px] px-4 sm:px-8 py-4 relative"
+        onMouseEnter={() => handleMenuClose()}
+      >
+        <div className="flex justify-between">
+          <div className="flex gap-6 lg:gap-8 overflow-auto w-full flex-nowrap">
+            <span
+              className="text-primary  font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
+            flex-col flex gap-2 text-[12px] shrink-0 lg:text-[15px]
+            "
+              onMouseOver={() => {
+                setMenu(true);
+                setShowBusiness(true);
+                setShowCommunity(false);
+                setShowServices(false);
+                setShowJobs(false);
+                setShowRealEstate(false);
+                setShowPets(false);
+                setShowVacation(false);
+
+                setShowCars(false);
+
+                setParentTitle("Buy & Sell");
+                setImage(businessImg);
+              }}
+              onClick={() => {
+                toggleModal();
+
+                setShowBusinessMobile(true);
+                setShowCommunityMobile(false);
+                setShowServicesMobile(false);
+                setShowJobsMobile(false);
+                setShowRealEstateMobile(false);
+                setShowPetsMobile(false);
+                setShowVacationMobile(false);
+                setShowCarsMobile(false);
+                setParentTitle("Buy & Sell");
+              }}
+            >
+              <img
+                src="/assets/images/buy-svg.svg"
+                alt="buy"
+                className="block lg:hidden  w-[24px] h-[24px] self-center"
+              />
+              <span> Buy & Sell </span>
+            </span>
+            <span
+              className="text-primary text-[12px] lg:text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
+            
+                flex-col flex gap-2  shrink-0
+            "
+              onMouseOver={() => {
+                setMenu(true);
+                setShowBusiness(false);
+                setShowCommunity(false);
+                setShowServices(false);
+                setShowJobs(false);
+                setShowRealEstate(false);
+                setShowPets(false);
+                setShowVacation(false);
+
+                setShowCars(true);
+
+                setParentTitle("Cars & Vehicles");
+                setImage(carImg);
+              }}
+              onClick={() => {
+                toggleModal();
+
+                setShowBusinessMobile(false);
+                setShowCommunityMobile(false);
+                setShowServicesMobile(false);
+                setShowJobsMobile(false);
+                setShowRealEstateMobile(false);
+                setShowPetsMobile(false);
+                setShowVacationMobile(false);
+                setShowCarsMobile(true);
+                setParentTitle("Cars & Vehicles");
+              }}
+            >
+              <img
+                src="/assets/images/car-svg.svg"
+                alt="buy"
+                className="block lg:hidden  w-[24px] h-[24px] self-center"
+              />
+              <span>Car & Vehicles </span>
+            </span>
+            <span
+              className="text-primary text-[12px] shrink-0 lg:text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
+                flex-col flex gap-2
+            "
+              onMouseOver={() => {
+                setMenu(true);
+                setShowBusiness(false);
+                setShowCommunity(false);
+                setShowServices(false);
+                setShowJobs(false);
+                setShowRealEstate(true);
+                setShowPets(false);
+                setShowVacation(false);
+
+                setShowCars(false);
+
+                setParentTitle("Real Estate");
+                setImage(realEstateImg);
+              }}
+              onClick={() => {
+                toggleModal();
+
+                setShowBusinessMobile(false);
+                setShowCommunityMobile(false);
+                setShowServicesMobile(false);
+                setShowJobsMobile(false);
+                setShowRealEstateMobile(true);
+                setShowPetsMobile(false);
+                setShowVacationMobile(false);
+                setShowCarsMobile(false);
+                setParentTitle("Real Estate");
+              }}
+            >
+              <img
+                src="/assets/images/real-estate-svg.svg"
+                alt="buy"
+                className="block lg:hidden  w-[24px] h-[24px] self-center"
+              />
+              <span>Real Estate</span>
+            </span>
+            <span
+              className="text-primary text-[12px] shrink-0 lg:text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
+                flex-col flex gap-2
+            "
+              onMouseOver={() => {
+                setMenu(true);
+                setShowBusiness(false);
+                setShowCommunity(false);
+                setShowServices(false);
+                setShowJobs(true);
+                setShowRealEstate(false);
+                setShowPets(false);
+                setShowVacation(false);
+
+                setShowCars(false);
+
+                setParentTitle("Jobs");
+                setImage(jobImg);
+              }}
+              onClick={() => {
+                toggleModal();
+
+                setShowBusinessMobile(false);
+                setShowCommunityMobile(false);
+                setShowServicesMobile(false);
+                setShowJobsMobile(true);
+                setShowRealEstateMobile(false);
+                setShowPetsMobile(false);
+                setShowVacationMobile(false);
+                setShowCarsMobile(false);
+                setParentTitle("Jobs");
+              }}
+            >
+              <img
+                src="/assets/images/jobs-svg.svg"
+                alt="jobs"
+                className="block lg:hidden  w-[24px] h-[24px] self-center"
+              />
+              <span> Jobs</span>
+            </span>
+            <span
+              className="text-primary text-[12px] shrink-0 lg:text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
+                flex-col flex gap-2
+            "
+              onMouseOver={() => {
+                setMenu(true);
+                setShowBusiness(false);
+                setShowCommunity(false);
+                setShowServices(true);
+                setShowJobs(false);
+                setShowRealEstate(false);
+                setShowPets(false);
+                setShowVacation(false);
+
+                setShowCars(false);
+
+                setParentTitle("Services");
+                setImage(servicesImg);
+              }}
+              onClick={() => {
+                toggleModal();
+
+                setShowBusinessMobile(false);
+                setShowCommunityMobile(false);
+                setShowServicesMobile(true);
+                setShowJobsMobile(false);
+                setShowRealEstateMobile(false);
+                setShowPetsMobile(false);
+                setShowVacationMobile(false);
+                setShowCarsMobile(false);
+                setParentTitle("Services");
+              }}
+            >
+              <img
+                src="/assets/images/services-svg.svg"
+                alt="buy"
+                className="block lg:hidden  w-[24px] h-[24px] self-center"
+              />
+              <span>Services</span>
+            </span>
+            <span
+              className="text-primary text-[12px] shrink-0 lg:text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
+                flex-col flex gap-2
+            "
+              onMouseOver={() => {
+                setMenu(true);
+                setShowBusiness(false);
+                setShowCommunity(false);
+                setShowServices(false);
+                setShowJobs(false);
+                setShowRealEstate(false);
+                setShowPets(true);
+                setShowVacation(false);
+
+                setShowCars(false);
+                setParentTitle("Pets");
+                setImage(petImg);
+              }}
+              onClick={() => {
+                toggleModal();
+
+                setShowBusinessMobile(false);
+                setShowCommunityMobile(false);
+                setShowServicesMobile(false);
+                setShowJobsMobile(false);
+                setShowRealEstateMobile(false);
+                setShowPetsMobile(true);
+                setShowVacationMobile(false);
+                setShowCarsMobile(false);
+                setParentTitle("Pets");
+              }}
+            >
+              <img
+                src="/assets/images/pets-svg.svg"
+                alt="pets"
+                className="block lg:hidden  w-[24px] h-[24px] self-center"
+              />
+              <span>Pets</span>
+            </span>
+            <span
+              className="text-primary text-[12px] shrink-0 lg:text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
+                flex-col flex gap-2"
+              onMouseOver={() => {
+                setMenu(true);
+                setShowBusiness(false);
+                setShowCommunity(true);
+                setShowServices(false);
+                setShowJobs(false);
+                setShowRealEstate(false);
+                setShowPets(false);
+                setShowVacation(false);
+
+                setShowCars(false);
+                setParentTitle("Community");
+                setImage(communityImg);
+              }}
+              onClick={() => {
+                toggleModal();
+
+                setShowBusinessMobile(false);
+                setShowCommunityMobile(true);
+                setShowServicesMobile(false);
+                setShowJobsMobile(false);
+                setShowRealEstateMobile(false);
+                setShowPetsMobile(false);
+                setShowVacationMobile(false);
+                setShowCarsMobile(false);
+                setParentTitle("Community");
+              }}
+            >
+              <img
+                src="/assets/images/community-svg.svg"
+                alt="community"
+                className="block lg:hidden  w-[24px] h-[24px] self-center"
+              />
+              <span>Community</span>
+            </span>
+            <span
+              className="text-primary text-[12px] shrink-0 lg:text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
+                flex-col flex gap-2
+            "
+              onMouseOver={() => {
+                setMenu(true);
+                setShowBusiness(false);
+                setShowCommunity(false);
+                setShowServices(false);
+                setShowJobs(false);
+                setShowRealEstate(false);
+                setShowPets(false);
+                setShowVacation(true);
+
+                setShowCars(false);
+
+                setParentTitle("Vacation Rentals");
+                setImage(vacationImg);
+              }}
+              onClick={() => {
+                toggleModal();
+
+                setShowBusinessMobile(false);
+                setShowCommunityMobile(false);
+                setShowServicesMobile(false);
+                setShowJobsMobile(false);
+                setShowRealEstateMobile(false);
+                setShowPetsMobile(false);
+                setShowVacationMobile(true);
+                setShowCarsMobile(false);
+
+                setParentTitle("Vacation Rentals");
+              }}
+            >
+              <img
+                src="/assets/images/vacation-svg.svg"
+                alt="buy"
+                className="block lg:hidden  w-[24px] h-[24px] self-center"
+              />
+              <span>Vacation Rentals</span>
+            </span>
+          </div>
+          {/*  right */}
+          <div className=" hidden lg:flex flex-col">
+            <span className="underline px-[8px] py-[4px] rounded-[4px] bg-[#F8AA17] font-bold text-primary text-[12px]">
+              Trending
+            </span>
+            <a href="#" className="underline text-primary text-[15px]">
+              ATVs
+            </a>
+          </div>
+        </div>
+        {/*  Menu */}
+        <div
+          className={`absolute    top-full right-5 w-[calc(100%-32px)] h-[400px] z-10 bg-white ${
+            menu ? "hidden lg:flex" : "hidden"
+          }
       
         `}
-      >
-        {/*  categories */}
-
-        <div className="h-full overflow-y-auto custom-scrollbar-container flex flex-col  justify-start basis-[350px] max-w-[350px] min-w-[320px]">
-          <span className="flex px-4 py-2 hover:bg-[#ececee]">
-            <a
-              href="#"
-              className="underline hover:no-underline transition   font-semibold  text-[#155e9b] cursor-pointer "
-            >
-              See all in {parentTitle}
-            </a>
-          </span>
-          {showBusiness &&
-            sell.map((item, i) => (
-              <div
-                key={i}
-                className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
-                onMouseEnter={() => {
-                  handleItemHover(item.children);
-                  setSelectedItem(item);
-                }}
-                // onMouseLeave={() => handleItemHover(null)}
-              >
-                <span className=" text-[15px] text-gray-500 text-center">
-                  {item.title}
-                </span>
-                {item.children && (
-                  <IoChevronForward className="text-gray-500" />
-                )}
-              </div>
-            ))}
-          {showCars &&
-            cars.map((item, i) => (
-              <div
-                key={i}
-                className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
-                onMouseEnter={() => {
-                  handleItemHover(item.children);
-                  setSelectedItem(item);
-                }}
-                // onMouseLeave={() => handleItemHover(null)}
-              >
-                <span className=" text-[15px] text-gray-500 text-center">
-                  {item.title}
-                </span>
-                {item.children && (
-                  <IoChevronForward className="text-gray-500" />
-                )}
-              </div>
-            ))}
-          {showRealEstate &&
-            realEstate.map((item, i) => (
-              <div
-                key={i}
-                className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
-                onMouseEnter={() => {
-                  handleItemHover(item.children);
-                  setSelectedItem(item);
-                }}
-                // onMouseLeave={() => handleItemHover(null)}
-              >
-                <span className=" text-[15px] text-gray-500 text-center">
-                  {item.title}
-                </span>
-                {item.children && (
-                  <IoChevronForward className="text-gray-500" />
-                )}
-              </div>
-            ))}
-          {showJobs &&
-            jobs.map((item, i) => (
-              <div
-                key={i}
-                className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
-                onMouseEnter={() => {
-                  handleItemHover(item.children);
-                  setSelectedItem(item);
-                }}
-                // onMouseLeave={() => handleItemHover(null)}
-              >
-                <span className=" text-[15px] text-gray-500 text-center">
-                  {item.title}
-                </span>
-                {item.children && (
-                  <IoChevronForward className="text-gray-500" />
-                )}
-              </div>
-            ))}
-          {showServices &&
-            services.map((item, i) => (
-              <div
-                key={i}
-                className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
-                onMouseEnter={() => {
-                  handleItemHover(item.children);
-                  setSelectedItem(item);
-                }}
-                // onMouseLeave={() => handleItemHover(null)}
-              >
-                <span className=" text-[15px] text-gray-500 text-center">
-                  {item.title}
-                </span>
-                {item.children && (
-                  <IoChevronForward className="text-gray-500" />
-                )}
-              </div>
-            ))}
-          {showPets &&
-            pets.map((item, i) => (
-              <div
-                key={i}
-                className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
-                onMouseEnter={() => {
-                  handleItemHover(item.children);
-                  setSelectedItem(item);
-                }}
-                // onMouseLeave={() => handleItemHover(null)}
-              >
-                <span className=" text-[15px] text-gray-500 text-center">
-                  {item.title}
-                </span>
-                {item.children && (
-                  <IoChevronForward className="text-gray-500" />
-                )}
-              </div>
-            ))}
-          {showCommunity &&
-            community.map((item, i) => (
-              <div
-                key={i}
-                className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
-                onMouseEnter={() => {
-                  handleItemHover(item.children);
-                  setSelectedItem(item);
-                }}
-                // onMouseLeave={() => handleItemHover(null)}
-              >
-                <span className=" text-[15px] text-gray-500 text-center">
-                  {item.title}
-                </span>
-                {item.children && (
-                  <IoChevronForward className="text-gray-500" />
-                )}
-              </div>
-            ))}
-          {showVacation &&
-            vacaction.map((item, i) => (
-              <div
-                key={i}
-                className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
-                onMouseEnter={() => {
-                  handleItemHover(item.children);
-                  setSelectedItem(item);
-                }}
-                // onMouseLeave={() => handleItemHover(null)}
-              >
-                <span className=" text-[15px] text-gray-500 text-center">
-                  {item.title}
-                </span>
-                {item.children && (
-                  <IoChevronForward className="text-gray-500" />
-                )}
-              </div>
-            ))}
-        </div>
-        <div
-          className="flex-1 menu-img"
-          style={{
-            backgroundImage: `  ${
-              selectedItemChildren?.length > 11 ? "" : `url(${image})`
-            } `,
-          }}
         >
-          {selectedItemChildren && (
-            <div
-              className="flex flex-col  px-4  space-y-2 flex-wrap"
-              style={{ maxHeight: "100%", overflow: "auto" }}
-            >
+          {/*  categories */}
+
+          <div className="h-full overflow-y-auto custom-scrollbar-container flex flex-col  justify-start basis-[350px] max-w-[350px] min-w-[320px]">
+            <span className="flex px-4 py-2 hover:bg-[#ececee]">
               <a
-                href="
-                #"
+                href="#"
                 className="underline hover:no-underline transition   font-semibold  text-[#155e9b] cursor-pointer "
               >
-                See all in {selectedItem.title}
+                See all in {parentTitle}
               </a>
-              {/* Render the children of the selected item here */}
-              {selectedItemChildren.map((item, index) => (
+            </span>
+            {showBusiness &&
+              sell.map((item, i) => (
                 <div
-                  key={index}
-                  className="flex  flex-col gap-2 gap-y-0  flex-wrap"
-                  style={{ maxHeight: "100%", overflow: "auto" }}
+                  key={i}
+                  className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
+                  onMouseEnter={() => {
+                    handleItemHover(item.children);
+                    setSelectedItem(item);
+                  }}
                 >
-                  <a href="#" className="hover:underline hover:text-blue-500 ">
-                    {item.replace(/"/g, "")}
-                  </a>
+                  <span className=" text-[15px] text-gray-500 text-center">
+                    {item.title}
+                  </span>
+                  {item.children && (
+                    <IoChevronForward className="text-gray-500" />
+                  )}
                 </div>
               ))}
-            </div>
-          )}
+            {showCars &&
+              cars.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
+                  onMouseEnter={() => {
+                    handleItemHover(item.children);
+                    setSelectedItem(item);
+                  }}
+                  // onMouseLeave={() => handleItemHover(null)}
+                >
+                  <span className=" text-[15px] text-gray-500 text-center">
+                    {item.title}
+                  </span>
+                  {item.children && (
+                    <IoChevronForward className="text-gray-500" />
+                  )}
+                </div>
+              ))}
+            {showRealEstate &&
+              realEstate.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
+                  onMouseEnter={() => {
+                    handleItemHover(item.children);
+                    setSelectedItem(item);
+                  }}
+                  // onMouseLeave={() => handleItemHover(null)}
+                >
+                  <span className=" text-[15px] text-gray-500 text-center">
+                    {item.title}
+                  </span>
+                  {item.children && (
+                    <IoChevronForward className="text-gray-500" />
+                  )}
+                </div>
+              ))}
+            {showJobs &&
+              jobs.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
+                  onMouseEnter={() => {
+                    handleItemHover(item.children);
+                    setSelectedItem(item);
+                  }}
+                  // onMouseLeave={() => handleItemHover(null)}
+                >
+                  <span className=" text-[15px] text-gray-500 text-center">
+                    {item.title}
+                  </span>
+                  {item.children && (
+                    <IoChevronForward className="text-gray-500" />
+                  )}
+                </div>
+              ))}
+            {showServices &&
+              services.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
+                  onMouseEnter={() => {
+                    handleItemHover(item.children);
+                    setSelectedItem(item);
+                  }}
+                  // onMouseLeave={() => handleItemHover(null)}
+                >
+                  <span className=" text-[15px] text-gray-500 text-center">
+                    {item.title}
+                  </span>
+                  {item.children && (
+                    <IoChevronForward className="text-gray-500" />
+                  )}
+                </div>
+              ))}
+            {showPets &&
+              pets.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
+                  onMouseEnter={() => {
+                    handleItemHover(item.children);
+                    setSelectedItem(item);
+                  }}
+                  // onMouseLeave={() => handleItemHover(null)}
+                >
+                  <span className=" text-[15px] text-gray-500 text-center">
+                    {item.title}
+                  </span>
+                  {item.children && (
+                    <IoChevronForward className="text-gray-500" />
+                  )}
+                </div>
+              ))}
+            {showCommunity &&
+              community.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
+                  onMouseEnter={() => {
+                    handleItemHover(item.children);
+                    setSelectedItem(item);
+                  }}
+                  // onMouseLeave={() => handleItemHover(null)}
+                >
+                  <span className=" text-[15px] text-gray-500 text-center">
+                    {item.title}
+                  </span>
+                  {item.children && (
+                    <IoChevronForward className="text-gray-500" />
+                  )}
+                </div>
+              ))}
+            {showVacation &&
+              vacation.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
+                  onMouseEnter={() => {
+                    handleItemHover(item.children);
+                    setSelectedItem(item);
+                  }}
+                >
+                  <span className=" text-[15px] text-gray-500 text-center">
+                    {item.title}
+                  </span>
+                  {item.children && (
+                    <IoChevronForward className="text-gray-500" />
+                  )}
+                </div>
+              ))}
+          </div>
+          <div
+            className="flex-1 menu-img"
+            style={{
+              backgroundImage: `  ${
+                selectedItemChildren?.length > 11 ? "" : `url(${image})`
+              } `,
+            }}
+          >
+            {selectedItemChildren && (
+              <div
+                className="flex flex-col  px-4  space-y-2 flex-wrap"
+                style={{ maxHeight: "100%", overflow: "auto" }}
+              >
+                <a
+                  href="
+                #"
+                  className="underline hover:no-underline transition   font-semibold  text-[#155e9b] cursor-pointer "
+                >
+                  See all in {selectedItem.title}
+                </a>
+                {/* Render the children of the selected item here */}
+                {selectedItemChildren.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex  flex-col gap-2 gap-y-0  flex-wrap"
+                    style={{ maxHeight: "100%", overflow: "auto" }}
+                  >
+                    <a
+                      href="#"
+                      className="hover:underline hover:text-blue-500 "
+                    >
+                      {item.replace(/"/g, "")}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+      {/* Backdrop */}
+      {isOpen && (
+        <div className="fixed  lg:hidden z-10 inset-0 overflow-y-auto bg-black opacity-50"></div>
+      )}
+
+      {/* Modal */}
+      {isOpen && (
+        <div className="fixed z-20 top-0 left-0 right-0 bottom-0 flex lg:hidden justify-center items-center">
+          <div className="bg-white rounded-lg relative overflow-auto shadow-xl max-w-full w-[400px]   sm:w-[600px]  md:w-[700px] h-full custom-sm:h-[90%]">
+            <button onClick={toggleModal}>
+              <IoClose className="text-gray-500 absolute top-5 right-5 text-[20px]" />
+            </button>
+            {(showBusinessMobile ||
+              showCarsMobile ||
+              showCommunityMobile ||
+              showJobsMobile ||
+              showPetsMobile ||
+              showRealEstateMobile ||
+              showServicesMobile ||
+              showVacationMobile) && (
+              <>
+                <h4 className="text-primary font-bold text-[20px] px-4">
+                  {parentTitle}{" "}
+                </h4>
+                <span className="flex px-4 py-2 hover:bg-[#ececee]">
+                  <a
+                    href="#"
+                    className="underline hover:no-underline transition   font-semibold  text-[#155e9b] cursor-pointer "
+                  >
+                    See all in {parentTitle}
+                  </a>
+                </span>
+              </>
+            )}
+            {showBusinessMobile &&
+              sell.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
+                  onClick={() => {
+                    handleItemClick(item.children);
+                    setSelectedItem(item);
+                    setShowBusinessMobile(false);
+                  }}
+                >
+                  <span className=" text-[15px] text-gray-500 text-center">
+                    {item.title}
+                  </span>
+                  {item.children && (
+                    <IoChevronForward className="text-gray-500" />
+                  )}
+                </div>
+              ))}
+            {showCarsMobile &&
+              cars.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
+                  onClick={() => {
+                    handleItemClick(item.children);
+                    setSelectedItem(item);
+                    setShowCarsMobile(false);
+                  }}
+                >
+                  <span className=" text-[15px] text-gray-500 text-center">
+                    {item.title}
+                  </span>
+                  {item.children && (
+                    <IoChevronForward className="text-gray-500" />
+                  )}
+                </div>
+              ))}
+            {showServicesMobile &&
+              services.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
+                  onClick={() => {
+                    handleItemClick(item.children);
+                    setSelectedItem(item);
+                    setShowServicesMobile(false);
+                  }}
+                >
+                  <span className=" text-[15px] text-gray-500 text-center">
+                    {item.title}
+                  </span>
+                  {item.children && (
+                    <IoChevronForward className="text-gray-500" />
+                  )}
+                </div>
+              ))}
+            {showCommunityMobile &&
+              community.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
+                  onClick={() => {
+                    handleItemClick(item.children);
+                    setSelectedItem(item);
+                    setShowCommunityMobile(false);
+                  }}
+                >
+                  <span className=" text-[15px] text-gray-500 text-center">
+                    {item.title}
+                  </span>
+                  {item.children && (
+                    <IoChevronForward className="text-gray-500" />
+                  )}
+                </div>
+              ))}
+            {showPetsMobile &&
+              pets.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
+                  onClick={() => {
+                    handleItemClick(item.children);
+                    setSelectedItem(item);
+                    setShowPetsMobile(false);
+                  }}
+                >
+                  <span className=" text-[15px] text-gray-500 text-center">
+                    {item.title}
+                  </span>
+                  {item.children && (
+                    <IoChevronForward className="text-gray-500" />
+                  )}
+                </div>
+              ))}
+            {showJobsMobile &&
+              jobs.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
+                  onClick={() => {
+                    handleItemClick(item.children);
+                    setSelectedItem(item);
+                    setShowJobsMobile(false);
+                  }}
+                >
+                  <span className=" text-[15px] text-gray-500 text-center">
+                    {item.title}
+                  </span>
+                  {item.children && (
+                    <IoChevronForward className="text-gray-500" />
+                  )}
+                </div>
+              ))}
+            {showRealEstateMobile &&
+              realEstate.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
+                  onClick={() => {
+                    handleItemClick(item.children);
+                    setSelectedItem(item);
+                    setShowRealEstateMobile(false);
+                  }}
+                >
+                  <span className=" text-[15px] text-gray-500 text-center">
+                    {item.title}
+                  </span>
+                  {item.children && (
+                    <IoChevronForward className="text-gray-500" />
+                  )}
+                </div>
+              ))}
+            {showVacationMobile &&
+              vacation.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-center py-2 px-4 hover:bg-[#ececee] cursor-pointer transition "
+                  onClick={() => {
+                    handleItemClick(item.children);
+                    setSelectedItem(item);
+                    setShowVacationMobile(false);
+                  }}
+                >
+                  <span className=" text-[15px] text-gray-500 text-center">
+                    {item.title}
+                  </span>
+                  {item.children && (
+                    <IoChevronForward className="text-gray-500" />
+                  )}
+                </div>
+              ))}
+            {/*   Sub Categories */}
+            {selectedItemChildren && (
+              <>
+                <span
+                  className="mb-6  flex flex-row px-4 gap-1 items-center"
+                  onClick={handleBackModal}
+                >
+                  <IoChevronBackOutline className="text-primary" />
+                  <span className="text-primary font-normal">
+                    Back to {parentTitle}{" "}
+                  </span>
+                </span>
+                <div
+                  className="flex flex-col  px-4  space-y-2 "
+                  style={{ maxHeight: "100%", overflow: "auto" }}
+                >
+                  <h4 className="text-primary font-bold text-[20px] ">
+                    {selectedItem.title}{" "}
+                  </h4>
+                  <a
+                    href="
+                #"
+                    className="underline hover:no-underline transition   font-semibold  text-[#155e9b] cursor-pointer "
+                  >
+                    See all in {selectedItem.title}
+                  </a>
+                  {/* Render the children of the selected item here */}
+
+                  {selectedItemChildren.map((item, index) => (
+                    <div key={index} className="flex  flex-col space-y-6   ">
+                      <a
+                        href="#"
+                        className="hover:underline hover:text-blue-500 text-primary font-normal "
+                      >
+                        {item.replace(/"/g, "")}
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
