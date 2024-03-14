@@ -745,7 +745,7 @@ const HeroNav = () => {
   return (
     <>
       <div
-        className="max-w-[1440px] px-4 sm:px-8 py-4 relative"
+        className="max-w-[1440px] mx-auto px-4 sm:px-8 py-4 relative"
         onMouseEnter={() => handleMenuClose()}
       >
         <div className="flex justify-between">

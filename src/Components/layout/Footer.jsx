@@ -1,3 +1,5 @@
+import { useMenu } from "../../../hooks/useMenu";
+
 export const Footer = () => {
   const links = [
     {
@@ -49,8 +51,14 @@ export const Footer = () => {
     },
     { text: "Change Contrast", htmlFor: "ContrastSwitch" },
   ];
+
+  const { setMenu } = useMenu();
+
   return (
-    <div className="text-white bg-[#3e4153] py-[40px]">
+    <div
+      className="text-white bg-[#3e4153] py-[40px]"
+      onMouseOver={() => setMenu(false)}
+    >
       <div className="container mx-auto px-[16px]">
         <div className="link-container max-w-full md:max-w-[980px] mx-auto pt-[88px]">
           <div className="grid grid-cols-12">
