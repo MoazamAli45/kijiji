@@ -70,7 +70,7 @@ export const Footer = () => {
                 <ul className="list-none p-0 m-0">
                   {links.map((link, i) => (
                     <li
-                      className="mt-[25px] cursor-pointer text-[15px] font-bold leading-[20px] text-[#fff]  "
+                      className="mt-[25px] cursor-pointer text-[15px] font-bold leading-[20px] text-[#fff] hover:text-[#37A864] hover:underline  "
                       key={i}
                     >
                       {link.text}
@@ -87,7 +87,7 @@ export const Footer = () => {
                 <ul className="list-none p-0 m-0">
                   {links2.map((link, i) => (
                     <li
-                      className="mt-[25px] cursor-pointer text-[15px] font-bold leading-[20px] text-[#fff]  "
+                      className="mt-[25px] cursor-pointer text-[15px] font-bold leading-[20px] text-[#fff] hover:text-[#37A864] hover:underline "
                       key={i}
                     >
                       {link.text}
@@ -104,7 +104,7 @@ export const Footer = () => {
                 <ul className="list-none p-0 m-0">
                   {links3.map((link, i) => (
                     <li
-                      className="mt-[25px] cursor-pointer text-[15px] font-bold leading-[20px] text-[#fff] "
+                      className="mt-[25px] cursor-pointer text-[15px] font-bold leading-[20px] text-[#fff] hover:text-[#37A864] hover:underline "
                       key={i}
                     >
                       {link.text}
@@ -121,10 +121,17 @@ export const Footer = () => {
                 <ul className="list-none p-0 m-0">
                   {listItems.map((link, i) => (
                     <li
-                      className="mt-[25px] cursor-pointer text-[15px] font-bold leading-[20px] text-[#fff] "
+                      className="mt-[25px] cursor-pointer text-[15px] font-bold leading-[20px] text-[#fff]  flex gap-2"
                       key={i}
                     >
-                      {link.text}
+                      <span className="hover:text-[#37A864] hover:underline">
+                        {link.text}
+                      </span>
+                      {link.text === "Change Contrast" && (
+                        <label htmlFor="three">
+                          <input id="three" type="checkbox" />
+                        </label>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -135,7 +142,7 @@ export const Footer = () => {
             <img src="./assets/images/svgexport-37.svg" alt="" />
             <img src="./assets/images/svgexport-38.svg" alt="" />
             <div className="flex gap-4 flex-wrap">
-              <div className="h-[50px] w-[50px] cursor-pointer bg-[#6f727f] rounded-[25px] hover:bg-[#3c5b9a] flex justify-center items-center">
+              <div className="h-[50px] w-[50px] cursor-pointer bg-[#6f727f] rounded-[25px] hover:bg-[#316FF6] flex justify-center items-center">
                 <img
                   src="./assets/images/svgexport-39.svg"
                   width={10}
@@ -143,7 +150,7 @@ export const Footer = () => {
                   alt=""
                 />
               </div>
-              <div className="h-[50px] w-[50px] cursor-pointer bg-[#6f727f] rounded-[25px] hover:bg-[#3c5b9a] flex justify-center items-center">
+              <div className="h-[50px] w-[50px] cursor-pointer bg-[#6f727f] rounded-[25px] hover:bg-[#cd486b]  flex justify-center items-center">
                 <img
                   src="./assets/images/svgexport-40.svg"
                   width={22}
@@ -151,7 +158,7 @@ export const Footer = () => {
                   alt=""
                 />
               </div>
-              <div className="h-[50px] w-[50px] cursor-pointer bg-[#6f727f] rounded-[25px] hover:bg-[#3c5b9a] flex justify-center items-center">
+              <div className="h-[50px] w-[50px] cursor-pointer bg-[#6f727f] rounded-[25px] hover:bg-[#1DA1F2] flex justify-center items-center">
                 <img
                   src="./assets/images/svgexport-41.svg"
                   width={20}
@@ -159,7 +166,7 @@ export const Footer = () => {
                   alt=""
                 />
               </div>
-              <div className="h-[50px] w-[50px] cursor-pointer bg-[#6f727f] rounded-[25px] hover:bg-[#3c5b9a] flex justify-center items-center">
+              <div className="h-[50px] w-[50px] cursor-pointer bg-[#6f727f] rounded-[25px] hover:bg-[#37A864] flex justify-center items-center">
                 <img
                   src="./assets/images/svgexport-42.svg"
                   width={25}
@@ -167,7 +174,7 @@ export const Footer = () => {
                   alt=""
                 />
               </div>
-              <div className="h-[50px] w-[50px] cursor-pointer bg-[#6f727f] rounded-[25px] hover:bg-[#3c5b9a] flex justify-center items-center">
+              <div className="h-[50px] w-[50px] cursor-pointer bg-[#6f727f] rounded-[25px] hover:bg-[#CD201F] flex justify-center items-center">
                 <img
                   src="./assets/images/svgexport-43.svg"
                   width={25}
@@ -176,6 +183,11 @@ export const Footer = () => {
                 />
               </div>
             </div>
+
+            <p className="text-center text-[#c5c6cb] text-[14px]">
+              All rights reserved. Google, Google Play, YouTube and other marks
+              are trademarks of Google Inc.
+            </p>
           </div>
         </div>
       </div>

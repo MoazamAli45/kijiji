@@ -292,7 +292,7 @@ const Hero = () => {
                     alt={car.title}
                     className="w-full h-full object-cover rounded-sm"
                   />
-                  <div className="bg-gradient absolute bottom-0 right-0 left-[9px] h-[36px] flex items-center  pb-6">
+                  <div className="bg-gradient absolute bottom-0 right-0  h-[36px] flex items-center  pb-6">
                     <p className="text-white font-semibold text-[14px] px-2 mb-4 text-ellipsis ">
                       {car.title}
                     </p>
@@ -318,7 +318,7 @@ const Hero = () => {
                       alt={car.title}
                       className="  object-cover rounded-sm   sm:w-full   sm:h-full "
                     />
-                    <div className="bg-gradient absolute bottom-0 right-0 left-[9px] h-[36px] flex items-center  pb-6 justify-between">
+                    <div className="bg-gradient absolute bottom-0 right-0 left-0 h-[36px] flex items-center  pb-6 justify-between">
                       <p className="text-white font-semibold text-[14px] px-2 mb-4 text-ellipsis ">
                         {car.title}
                       </p>
@@ -371,7 +371,7 @@ const Hero = () => {
         </div>
       </div>
       {/*  Above Footer */}
-      <div className="max-w-[1440px] px-4  sm:px-8   my-16">
+      <div className="max-w-[1440px] px-4  sm:px-8   my-16 mx-auto">
         <div className="bg-primary rounded-[5px] flex flex-col items-center pt-8  custom-md:flex-row   justify-evenly custom-ml:h-[230px] overflow-y-hidden  px-6 custom-ml:px-0">
           <div className="flex flex-col gap-4 text-white justify-center">
             <h2 className="text-[22px] font-semibold leading-[26px]">
