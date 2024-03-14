@@ -690,7 +690,9 @@ const Hero = () => {
       <div className="flex justify-between">
         <div className="flex gap-8">
           <span
-            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]"
+            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
+            flex-col flex gap-1
+            "
             onMouseOver={() => {
               setMenu(true);
               setShowBusiness(true);
@@ -707,10 +709,18 @@ const Hero = () => {
               setImage(businessImg);
             }}
           >
-            Buy & Sell
+            <img
+              src="/assets/images/buy-svg.svg"
+              alt="buy"
+              className="block lg:hidden  w-[24px] h-[24px] self-center"
+            />
+            <span> Buy & Sell </span>
           </span>
           <span
-            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]"
+            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
+            
+                flex-col flex gap-1
+            "
             onMouseOver={() => {
               setMenu(true);
               setShowBusiness(false);
@@ -728,10 +738,17 @@ const Hero = () => {
             }}
             // onMouseLeave={() => setMenu(false)}
           >
-            Car & Vehicles
+            <img
+              src="/assets/images/car-svg.svg"
+              alt="buy"
+              className="block lg:hidden  w-[24px] h-[24px] self-center"
+            />
+            <span>Car & Vehicles </span>
           </span>
           <span
-            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]"
+            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
+                flex-col flex gap-1
+            "
             onMouseOver={() => {
               setMenu(true);
               setShowBusiness(false);
@@ -749,10 +766,17 @@ const Hero = () => {
             }}
             // onMouseLeave={() => setMenu(false)}
           >
-            Real Estate
+            <img
+              src="/assets/images/real-estate-svg.svg"
+              alt="buy"
+              className="block lg:hidden  w-[24px] h-[24px] self-center"
+            />
+            <span>Real Estate</span>
           </span>
           <span
-            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]"
+            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
+                flex-col flex gap-1
+            "
             onMouseOver={() => {
               setMenu(true);
               setShowBusiness(false);
@@ -770,10 +794,17 @@ const Hero = () => {
             }}
             // onMouseLeave={() => setMenu(false)}
           >
-            Jobs
+            <img
+              src="/assets/images/jobs-svg.svg"
+              alt="jobs"
+              className="block lg:hidden  w-[24px] h-[24px] self-center"
+            />
+            <span> Jobs</span>
           </span>
           <span
-            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]"
+            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
+                flex-col flex gap-1
+            "
             onMouseOver={() => {
               setMenu(true);
               setShowBusiness(false);
@@ -791,10 +822,17 @@ const Hero = () => {
             }}
             // onMouseLeave={() => setMenu(false)}
           >
-            Services
+            <img
+              src="/assets/images/services-svg.svg"
+              alt="buy"
+              className="block lg:hidden  w-[24px] h-[24px] self-center"
+            />
+            <span>Services</span>
           </span>
           <span
-            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]"
+            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
+                flex-col flex gap-1
+            "
             onMouseOver={() => {
               setMenu(true);
               setShowBusiness(false);
@@ -811,10 +849,16 @@ const Hero = () => {
             }}
             // onMouseLeave={() => setMenu(false)}
           >
-            Pets
+            <img
+              src="/assets/images/pets-svg.svg"
+              alt="pets"
+              className="block lg:hidden  w-[24px] h-[24px] self-center"
+            />
+            <span>Pets</span>
           </span>
           <span
-            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]"
+            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
+                flex-col flex gap-1"
             onMouseOver={() => {
               setMenu(true);
               setShowBusiness(false);
@@ -831,10 +875,17 @@ const Hero = () => {
             }}
             // onMouseLeave={() => setMenu(false)}
           >
-            Community
+            <img
+              src="/assets/images/community-svg.svg"
+              alt="community"
+              className="block lg:hidden  w-[24px] h-[24px] self-center"
+            />
+            <span>Community</span>
           </span>
           <span
-            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]"
+            className="text-primary text-[15px] font-semibold cursor-pointer transition hover:border-b-[3px] hover:border-solid hover:border-[#56c17c]
+                flex-col flex gap-1
+            "
             onMouseOver={() => {
               setMenu(true);
               setShowBusiness(false);
@@ -852,11 +903,16 @@ const Hero = () => {
             }}
             // onMouseLeave={() => setMenu(false)}
           >
-            Vacation Rentals
+            <img
+              src="/assets/images/vacation-svg.svg"
+              alt="buy"
+              className="block lg:hidden  w-[24px] h-[24px] self-center"
+            />
+            <span>Vacation Rentals</span>
           </span>
         </div>
         {/*  right */}
-        <div className="flex flex-col">
+        <div className=" hidden lg:flex flex-col">
           <span className="underline px-[8px] py-[4px] rounded-[4px] bg-[#F8AA17] font-bold text-primary text-[12px]">
             Trending
           </span>
