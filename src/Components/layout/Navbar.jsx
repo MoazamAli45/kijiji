@@ -1,14 +1,7 @@
 import { useState } from "react";
 import { useMenu } from "../../../hooks/useMenu";
 import { GoChevronDown, GoChevronUp } from "react-icons/go";
-import businessImg from "/assets/images/buy.jpg";
-import carImg from "/assets/images/car.jpg";
-import communityImg from "/assets/images/community.jpg";
-import petImg from "/assets/images/pets.jpg";
-import jobImg from "/assets/images/jobs.jpg";
-import realEstateImg from "/assets/images/real-estate.jpg";
-import servicesImg from "/assets/images/services.jpg";
-import vacationImg from "/assets/images/vacation.jpg";
+
 const Navbar = () => {
   const { setMenu } = useMenu();
 
@@ -80,59 +73,64 @@ const Navbar = () => {
                     {isOpen ? <GoChevronUp /> : <GoChevronDown />}
                   </button>
 
-                  <div
-                    className={`absolute top-full left-0 mt-1 bg-white shadow-md rounded-md w-full z-[999] ${
-                      !isOpen ? "opacity-0" : "opacity-100"
-                    } transition-opacity ease-linear duration-300`}
-                  >
-                    <ul className="flex flex-col gap-2">
-                      <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
-                        {" "}
-                        <img src="./assets/images/svgexport-6.svg" alt="" />
-                        All categories
-                      </li>
-                      <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
-                        {" "}
-                        <img src="./assets/images/buy-svg.svg" alt="" />
-                        Buy & Sell
-                      </li>
-                      <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
-                        {" "}
-                        <img src="./assets/images/car-svg.svg" alt="" />
-                        Cars & Vehicles
-                      </li>
-                      <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
-                        {" "}
-                        <img src="./assets/images/real-estate-svg.svg" alt="" />
-                        Real Estate
-                      </li>
-                      <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
-                        {" "}
-                        <img src="./assets/images/jobs-svg.svg" alt="" />
-                        Jobs
-                      </li>
-                      <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
-                        {" "}
-                        <img src="./assets/images/services-svg.svg" alt="" />
-                        Services
-                      </li>
-                      <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
-                        {" "}
-                        <img src="./assets/images/pets-svg.svg" alt="" />
-                        Pets
-                      </li>
-                      <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
-                        {" "}
-                        <img src="./assets/images/community-svg.svg" alt="" />
-                        Community
-                      </li>
-                      <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
-                        {" "}
-                        <img src="./assets/images/vacation-svg.svg" alt="" />
-                        Vacational Rental
-                      </li>
-                    </ul>
-                  </div>
+                  {isOpen && (
+                    <div
+                      className={`absolute top-full left-0 mt-1 bg-white shadow-md rounded-md w-full z-[999] ${
+                        !isOpen ? "opacity-0" : "opacity-100"
+                      } transition-opacity ease-linear duration-300`}
+                    >
+                      <ul className="flex flex-col gap-2">
+                        <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
+                          {" "}
+                          <img src="./assets/images/svgexport-6.svg" alt="" />
+                          All categories
+                        </li>
+                        <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
+                          {" "}
+                          <img src="./assets/images/buy-svg.svg" alt="" />
+                          Buy & Sell
+                        </li>
+                        <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
+                          {" "}
+                          <img src="./assets/images/car-svg.svg" alt="" />
+                          Cars & Vehicles
+                        </li>
+                        <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
+                          {" "}
+                          <img
+                            src="./assets/images/real-estate-svg.svg"
+                            alt=""
+                          />
+                          Real Estate
+                        </li>
+                        <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
+                          {" "}
+                          <img src="./assets/images/jobs-svg.svg" alt="" />
+                          Jobs
+                        </li>
+                        <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
+                          {" "}
+                          <img src="./assets/images/services-svg.svg" alt="" />
+                          Services
+                        </li>
+                        <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
+                          {" "}
+                          <img src="./assets/images/pets-svg.svg" alt="" />
+                          Pets
+                        </li>
+                        <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
+                          {" "}
+                          <img src="./assets/images/community-svg.svg" alt="" />
+                          Community
+                        </li>
+                        <li className="p-3 flex items-center  gap-2  text-primary text-[14px] hover:bg-[#ececee] transition-all">
+                          {" "}
+                          <img src="./assets/images/vacation-svg.svg" alt="" />
+                          Vacational Rental
+                        </li>
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
